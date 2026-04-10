@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"net/http"
+	"os"
 )
 
 var templates = template.Must(template.ParseGlob("templates/*.html"))
@@ -15,14 +16,22 @@ func render(w http.ResponseWriter) {
 }
 
 func main() {
-	// Archivos estáticos (css, js, imágenes)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	// 📁 Archivos estáticos
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// Ruta principal
+	// 🌐 Ruta principal
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		render(w)
 	})
 
-	println("Servidor corriendo en http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	// 🔥 Puerto dinámico (CLAVE para deploy)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	println("Servidor corriendo en puerto " + port)
+
+	http.ListenAndServe(":"+port, nil)
 }
