@@ -1,0 +1,62 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oasis Residencial Pachuca</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+
+    <!-- BOTÓN MENU -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="sidebar">
+
+        <a href="/">Inicio</a>
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">App</a>
+        <a href="#">Solicitudes</a>
+        <a href="#">Transparencia</a>
+
+        <div class="menu-group">
+            <div class="menu-title">Comité</div>
+
+            <div class="submenu">
+                <a href="#">Presidente</a>
+                <a href="#">Secretario</a>
+                <a href="#">Contabilidad</a>
+                <a href="#">Seguridad</a>
+                <a href="#">Servicios</a>
+            </div>
+        </div>
+        <a href="#">Reglamento</a>
+        <a href="#">Documentación</a>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="left">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="logo">
+                <span>Oasis Residencial Pachuca</span>
+            </div>
+        </div>
+
+    </nav>
+
+    {{template "content" .}}
+
+    <script src="/static/js/menu.js"></script>
+
+</body>
+
+</html>
+{{end}}
