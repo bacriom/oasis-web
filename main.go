@@ -8,8 +8,19 @@ import (
 
 var templates = template.Must(template.ParseGlob("templates/*.html"))
 
-func render(w http.ResponseWriter) {
-	err := templates.ExecuteTemplate(w, "layout", nil)
+func renderTemplate(w http.ResponseWriter, page string) {
+	files := []string{
+		"templates/layout.html",
+		"templates/" + page,
+	}
+
+	tmpl, err := template.ParseFiles(files...)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.ExecuteTemplate(w, "layout", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -20,9 +31,14 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// 🌐 Ruta principal
+	// HOME
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		render(w)
+		renderTemplate(w, "home.html")
+	})
+
+	// PRIVACIDAD
+	http.HandleFunc("/privacidad", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "privacidad.html")
 	})
 
 	// 🔥 Puerto dinámico (CLAVE para deploy)
