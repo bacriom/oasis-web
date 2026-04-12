@@ -5,4 +5,150 @@
     </div>
 </section>
 
+<section class="transparencia-section">
+
+    <div class="container">
+
+        <h2 class="section-title">Transparencia</h2>
+        <p class="section-subtitle">
+            Consulta documentos relevantes del fraccionamiento organizados por categoría.
+        </p>
+
+        <!-- ===================== REPORTES ===================== -->
+        <div class="doc-carousel">
+
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>REPORTES</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>REPORTES</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>REPORTES</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>REPORTES</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== MINUTAS ===================== -->
+        <div class="doc-carousel">
+
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>MINUTAS</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>MINUTAS</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>MINUTAS</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+            <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+
+                <div class="doc-preview">
+                    <span>MINUTAS</span>
+                </div>
+
+                <div class="doc-info">
+                    <p>Asamblea Febrero 2026</p>
+                    <span class="doc-link">Ver documento</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MODAL -->
+        <div id="docModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDoc()">&times;</span>
+                <iframe id="docFrame"></iframe>
+            </div>
+        </div>
+
+        <script>
+            function openDoc(url) {
+                document.getElementById("docFrame").src = url;
+                document.getElementById("docModal").style.display = "block";
+            }
+
+            function closeDoc() {
+                document.getElementById("docModal").style.display = "none";
+                document.getElementById("docFrame").src = "";
+            }
+        </script>
+
+
+        <!-- ===================== GENERALES ===================== -->
+
+    </div>
+
+</section>
+
+
+
 {{end}}
