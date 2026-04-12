@@ -645,6 +645,20 @@ body {
     z-index: 10;
 }
 
+.doc-carousel-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.doc-carousel {
+    display: flex;
+    gap: clamp(20px, 2.5vw, 28px);
+    overflow-x: auto;
+    padding-bottom: 15px;
+    max-width: 1100px;
+    width: 100%;
+}
+
 
 /* 📲 TABLET */
 
