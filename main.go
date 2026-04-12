@@ -6,8 +6,6 @@ import (
 	"os"
 )
 
-var templates = template.Must(template.ParseGlob("templates/*.html"))
-
 func renderTemplate(w http.ResponseWriter, page string) {
 	files := []string{
 		"templates/layout.html",
@@ -31,42 +29,24 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// RUTAS
+	// Handler dinámico
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// ⚠️ Evita que "/" capture todo
-		if r.URL.Path != "/" {
+
+		// HOME
+		if r.URL.Path == "/" {
+			renderTemplate(w, "home.html")
+			return
+		}
+		// Obtener nombre de página
+		page := r.URL.Path[1:] + ".html"
+
+		// Verificar si existe el archivo
+		if _, err := os.Stat("templates/" + page); os.IsNotExist(err) {
 			http.NotFound(w, r)
 			return
 		}
-		renderTemplate(w, "home.html")
-	})
 
-	http.HandleFunc("/privacidad", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "privacidad.html")
-	})
-
-	http.HandleFunc("/reglamento", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "reglamento.html")
-	})
-
-	http.HandleFunc("/seguridad", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "seguridad.html")
-	})
-
-	http.HandleFunc("/transparencia", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "transparencia.html")
-	})
-
-	http.HandleFunc("/comite", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "comite.html")
-	})
-
-	http.HandleFunc("/anuncios", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "anuncios.html")
-	})
-
-	http.HandleFunc("/solicitudes", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "solicitudes.html")
+		renderTemplate(w, page)
 	})
 
 	// 🔥 Puerto dinámico (CLAVE para deploy)
