@@ -6,8 +6,6 @@ import (
 	"os"
 )
 
-var templates = template.Must(template.ParseGlob("templates/*.html"))
-
 func renderTemplate(w http.ResponseWriter, page string) {
 	files := []string{
 		"templates/layout.html",
@@ -31,14 +29,24 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// HOME
+	// Handler dinámico
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "home.html")
-	})
 
-	// PRIVACIDAD
-	http.HandleFunc("/privacidad", func(w http.ResponseWriter, r *http.Request) {
-		renderTemplate(w, "privacidad.html")
+		// HOME
+		if r.URL.Path == "/" {
+			renderTemplate(w, "home.html")
+			return
+		}
+		// Obtener nombre de página
+		page := r.URL.Path[1:] + ".html"
+
+		// Verificar si existe el archivo
+		if _, err := os.Stat("templates/" + page); os.IsNotExist(err) {
+			http.NotFound(w, r)
+			return
+		}
+
+		renderTemplate(w, page)
 	})
 
 	// 🔥 Puerto dinámico (CLAVE para deploy)
