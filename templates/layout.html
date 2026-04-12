@@ -10,31 +10,27 @@
 
 <body>
 
-    <!-- BOTÓN MENU -->
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
     <!-- SIDEBAR -->
     <div id="sidebar" class="sidebar">
-
         <a href="/">Inicio</a>
-        <a href="#">Aviso de privacidad</a>
-        <a href="#">App</a>
-        <a href="#">Solicitudes</a>
-        <a href="#">Transparencia</a>
+        <a href="/solicitudes">Solicitudes</a>
+        <a href="/transparencia">Transparencia</a>
+        <a href="/reglamento">Reglamento</a>
+        <a href="/anuncios">Anuncios</a>
+        <a href="/privacidad">Privacidad</a>
 
         <div class="menu-group">
-            <div class="menu-title">Comité</div>
-
+            <div class="menu-title">
+                <a href="/comite">Comité</a>
+            </div>
             <div class="submenu">
-                <a href="#">Presidente</a>
-                <a href="#">Secretario</a>
-                <a href="#">Contabilidad</a>
-                <a href="#">Seguridad</a>
-                <a href="#">Servicios</a>
+                <a href="/comite/presidente">Presidente</a>
+                <a href="/comite/secretario">Secretario</a>
+                <a href="/comite/contabilidad">Contabilidad</a>
+                <a href="/comite/seguridad">Seguridad</a>
+                <a href="/comite/servicios">Servicios</a>
             </div>
         </div>
-        <a href="#">Reglamento</a>
-        <a href="#">Documentación</a>
 
     </div>
 
@@ -53,7 +49,6 @@
     </nav>
 
     {{template "content" .}}
-
     <script src="/static/js/menu.js"></script>
 
 </body>

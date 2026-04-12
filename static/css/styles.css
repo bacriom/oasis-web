@@ -233,6 +233,12 @@ body {
     object-fit: cover;
 }
 
+.menu-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 
 /* 📱 RESPONSIVE */
 

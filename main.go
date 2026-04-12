@@ -31,14 +31,42 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// HOME
+	// RUTAS
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// ⚠️ Evita que "/" capture todo
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
 		renderTemplate(w, "home.html")
 	})
 
-	// PRIVACIDAD
 	http.HandleFunc("/privacidad", func(w http.ResponseWriter, r *http.Request) {
 		renderTemplate(w, "privacidad.html")
+	})
+
+	http.HandleFunc("/reglamento", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "reglamento.html")
+	})
+
+	http.HandleFunc("/seguridad", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "seguridad.html")
+	})
+
+	http.HandleFunc("/transparencia", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "transparencia.html")
+	})
+
+	http.HandleFunc("/comite", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "comite.html")
+	})
+
+	http.HandleFunc("/anuncios", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "anuncios.html")
+	})
+
+	http.HandleFunc("/solicitudes", func(w http.ResponseWriter, r *http.Request) {
+		renderTemplate(w, "solicitudes.html")
 	})
 
 	// 🔥 Puerto dinámico (CLAVE para deploy)
