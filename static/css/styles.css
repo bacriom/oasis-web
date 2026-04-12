@@ -240,6 +240,51 @@ body {
 }
 
 
+/* CONTENEDOR */
+
+.container {
+    padding: 20px;
+}
+
+
+/* CARRUSEL */
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+}
+
+.swiper {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.swiper-slide p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+.swiper-slide a {
+    text-decoration: none;
+}
+
+
 /* 📱 RESPONSIVE */
 
 
