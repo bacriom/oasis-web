@@ -463,6 +463,189 @@ body {
 }
 
 
+/* ===================== TRANSPARENCIA ===================== */
+
+.transparencia-section {
+    padding: clamp(50px, 7vw, 100px) clamp(16px, 5vw, 80px);
+    background: #f5f5f5;
+}
+
+
+/* ===================== TITULOS ===================== */
+
+.section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: clamp(14px, 1.5vw, 18px);
+    margin-bottom: clamp(40px, 5vw, 80px);
+    color: #666;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ===================== CATEGORIA ===================== */
+
+.doc-category {
+    margin-bottom: clamp(60px, 8vw, 110px);
+}
+
+.doc-category h3 {
+    font-size: clamp(22px, 3vw, 30px);
+    margin-bottom: clamp(20px, 3vw, 30px);
+    padding-left: 5px;
+}
+
+
+/* ===================== CAROUSEL ===================== */
+
+.doc-carousel {
+    display: flex;
+    gap: clamp(20px, 2.5vw, 28px);
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+}
+
+
+/* Scroll */
+
+.doc-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.doc-carousel::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 10px;
+}
+
+
+/* ===================== CARD ===================== */
+
+.doc-card {
+    min-width: clamp(260px, 26vw, 300px);
+    flex-shrink: 0;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.doc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ===================== PREVIEW ===================== */
+
+.doc-preview {
+    height: 160px;
+    background: linear-gradient(135deg, #ececec, #e2e2e2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.doc-preview span {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #777;
+}
+
+
+/* ===================== INFO ===================== */
+
+.doc-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.doc-info p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.doc-link {
+    font-size: 13px;
+    color: #007BFF;
+    font-weight: 600;
+}
+
+
+/* ===================== MODAL ===================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    /* ← reemplaza top/left/width/height */
+    background: rgba(0, 0, 0, 0.7);
+    /* 🔥 CENTRADO REAL */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+
+/* contenido del modal */
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+    height: 85%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    /* 👇 esto ayuda al centrado visual */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* iframe */
+
+#docFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* botón cerrar */
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
 /* 📲 TABLET */
 
 @media (min-width: 769px) and (max-width: 1024px) {
