@@ -1,4 +1,4 @@
-/* RESET */
+/* ===================== RESET ===================== */
 
 * {
     margin: 0;
@@ -7,14 +7,14 @@
 }
 
 
-/* VARIABLES */
+/* ===================== VARIABLES ===================== */
 
 :root {
-    --navbar-height: 60px;
+    --navbar-height: clamp(60px, 5vw, 90px);
 }
 
 
-/* BODY */
+/* ===================== BODY ===================== */
 
 body {
     font-family: Arial, sans-serif;
@@ -22,13 +22,13 @@ body {
 }
 
 
-/* NAVBAR */
+/* ===================== NAVBAR ===================== */
 
 .navbar {
     height: var(--navbar-height);
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 clamp(20px, 4vw, 50px);
     background: black;
     color: white;
     position: fixed;
@@ -40,7 +40,7 @@ body {
 .left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: clamp(15px, 2vw, 30px);
 }
 
 .navbar a {
@@ -49,28 +49,30 @@ body {
 }
 
 
-/* LOGO */
+/* ===================== LOGO ===================== */
 
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .logo img {
-    height: 40px;
+    height: clamp(35px, 3vw, 65px);
 }
 
 .logo span {
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(16px, 1.5vw, 24px);
 }
 
 
-/* BOTÓN MENU */
+/* ===================== BOTÓN MENU ===================== */
 
 .menu-btn {
-    font-size: 20px;
+    font-size: clamp(20px, 2vw, 28px);
     background: none;
     color: white;
     border: none;
@@ -78,29 +80,36 @@ body {
 }
 
 
-/* SIDEBAR */
+/* ===================== SIDEBAR ===================== */
 
 .sidebar {
     position: fixed;
     top: var(--navbar-height);
-    left: -260px;
-    width: 260px;
+    left: 0;
+    width: clamp(240px, 18vw, 320px);
     height: calc(100% - var(--navbar-height));
     background: #111;
     color: white;
-    padding: 20px;
-    transition: 0.3s;
+    padding: clamp(20px, 2vw, 30px);
+    transform: translateX(-100%);
+    /* oculto */
+    transition: transform 0.3s ease;
     z-index: 999;
 }
 
+.sidebar.active {
+    transform: translateX(0);
+}
 
-/* LINKS */
+
+/* ===================== LINKS ===================== */
 
 .sidebar a {
     display: block;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
+    margin: clamp(10px, 1.2vw, 16px) 0;
+    font-size: clamp(14px, 1.2vw, 18px);
 }
 
 .sidebar a:hover {
@@ -109,27 +118,28 @@ body {
 }
 
 
-/* GRUPO */
+/* ===================== GRUPO ===================== */
 
 .menu-group {
     margin-top: 15px;
 }
 
 
-/* TITULO */
+/* ===================== TITULO ===================== */
 
 .menu-title {
     font-weight: bold;
     color: #aaa;
     margin-bottom: 5px;
+    font-size: clamp(13px, 1vw, 16px);
 }
 
 
-/* SUBMENU */
+/* ===================== SUBMENU ===================== */
 
 .submenu a {
     padding-left: 15px;
-    font-size: 14px;
+    font-size: clamp(13px, 1vw, 16px);
     color: #ccc;
 }
 
@@ -138,18 +148,20 @@ body {
 }
 
 
-/* HERO */
+/* ===================== HERO ===================== */
 
 .hero {
-    height: 300px;
+    height: clamp(300px, 45vh, 600px);
+    min-height: 300px;
     background-image: url('/static/images/portada_oasis.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     position: relative;
 }
 
 
-/* OVERLAY */
+/* ===================== OVERLAY ===================== */
 
 .overlay {
     position: absolute;
@@ -164,8 +176,16 @@ body {
     align-items: center;
 }
 
+.overlay h1 {
+    font-size: clamp(22px, 3vw, 42px);
+}
 
-/* TEXTO HERO */
+.overlay p {
+    font-size: clamp(14px, 1.2vw, 18px);
+}
+
+
+/* ===================== TEXTO HERO ===================== */
 
 .overlay h1 {
     font-size: 28px;
@@ -178,20 +198,18 @@ body {
 }
 
 
-/* ===== MENU GRID ===== */
+/* ===================== MENU GRID ===================== */
 
 .menu-grid {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     padding: 80px 20px;
 }
 
 .menu-item {
-    max-width: 320px;
-    margin: 0 auto;
     background: white;
     padding: 12px;
     border-radius: 16px;
@@ -204,9 +222,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-
-/* Placeholder de imagen */
-
 .menu-img {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -214,23 +229,17 @@ body {
     border-radius: 12px;
 }
 
-
-/* Texto */
+.menu-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .menu-item p {
     margin-top: 12px;
     font-weight: 600;
     font-size: 14px;
     color: #2c2c2c;
-}
-
-
-/*Imagenes*/
-
-.menu-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .menu-link {
@@ -240,58 +249,66 @@ body {
 }
 
 
-/* CONTENEDOR */
+/* ===================== CONTENEDOR ===================== */
 
 .container {
     padding: 20px;
 }
 
 
-/* CARRUSEL */
-
-.carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-}
+/* ===================== SWIPER ===================== */
 
 .swiper {
     width: 100%;
-    max-width: 350px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-bottom: 50px;
 }
 
 .swiper-slide {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .swiper-slide img {
     width: 100%;
-    height: 260px;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .swiper-slide p {
-    margin-top: 10px;
-    font-weight: bold;
-    color: black;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #222;
+    letter-spacing: 0.5px;
 }
 
-.swiper-slide a {
-    text-decoration: none;
+.swiper-pagination {
+    position: relative !important;
+    margin-top: 20px !important;
 }
 
 
-/* 📱 RESPONSIVE */
+/* ===================== RESPONSIVE ===================== */
 
 
-/* ===================== */
+/* 📱 MÓVIL */
 
 @media (max-width: 768px) {
-    /* HERO */
     .hero {
         height: 220px;
     }
@@ -304,48 +321,75 @@ body {
         text-align: center;
         padding: 0 10px;
     }
-    /* CARDS */
-    .cards {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px;
+    .menu-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 15px;
+        gap: 25px;
     }
-    .card {
-        width: 90%;
-    }
-    /* SIDEBAR */
     .sidebar {
         width: 220px;
     }
-    /* LOGO */
-    .logo img {
-        height: 30px;
+    .swiper {
+        padding: 0 10px;
+        padding-bottom: 50px;
     }
-    .logo span {
-        font-size: 14px;
+    .swiper-slide img {
+        height: 380px;
+    }
+    .swiper-slide p {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .swiper-pagination {
+        position: relative;
+        margin-top: 15px;
     }
 }
 
-@media (max-width: 900px) {
+
+/* 📲 TABLET */
+
+@media (min-width: 769px) and (max-width: 1024px) {
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 500px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
+    .swiper-slide img {
+        height: 300px;
     }
 }
 
-@media (max-width: 1024px) {
+
+/* 💻 DESKTOP */
+
+@media (min-width: 1025px) {
     .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 600px) {
+
+/* 🖥️ GRANDES */
+
+@media (min-width: 1200px) {
+    .swiper {
+        max-width: 1200px;
+    }
+    .swiper-slide img {
+        height: 560px;
+    }
     .menu-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 2fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .swiper {
+        max-width: 1400px;
+    }
+    .swiper-slide img {
+        height: 560px;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(3, 2fr);
     }
 }
