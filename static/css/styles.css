@@ -796,6 +796,71 @@ body {
 }
 
 
+/* ===================== SEGURIDAD ===================== */
+
+.seguridad-container {
+    width: 100%;
+    max-width: clamp(600px, 75vw, 1000px);
+    margin: clamp(40px, 6vw, 80px) auto;
+    padding: clamp(20px, 4vw, 40px);
+}
+
+
+/* intro */
+
+.seguridad-intro {
+    text-align: center;
+    font-size: clamp(14px, 1.2vw, 18px);
+    color: #555;
+    margin-bottom: clamp(30px, 4vw, 50px);
+}
+
+
+/* bloque */
+
+.seguridad-bloque {
+    background: white;
+    border-radius: 14px;
+    padding: clamp(20px, 3vw, 30px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* titulo */
+
+.seguridad-bloque h2 {
+    font-size: clamp(20px, 2vw, 26px);
+    color: #1e66d0;
+    margin-bottom: 15px;
+}
+
+
+/* texto */
+
+.seguridad-texto {
+    font-size: clamp(14px, 1.2vw, 17px);
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* video responsive */
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
 /* 🔥 importante: evita estilo plano */
 
 details>*:not(summary) {
