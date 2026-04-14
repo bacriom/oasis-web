@@ -4,6 +4,8 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+
+	"oasis-web/backend/handlers"
 )
 
 func renderTemplate(w http.ResponseWriter, page string) {
@@ -25,22 +27,29 @@ func renderTemplate(w http.ResponseWriter, page string) {
 }
 
 func main() {
-	// 📁 Archivos estáticos
+
+	// 📁 static
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// Handler dinámico
+	// 🔥 REDIRECT /comite → /comite/
+	http.HandleFunc("/comite", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/comite/", http.StatusMovedPermanently)
+	})
+
+	// 🔥 ESTE ES EL QUE FALTA (CRÍTICO)
+	http.HandleFunc("/comite/", handlers.ComiteDetalleHandler)
+
+	// handler general (SE QUEDA)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-		// HOME
 		if r.URL.Path == "/" {
 			renderTemplate(w, "home.html")
 			return
 		}
-		// Obtener nombre de página
+
 		page := r.URL.Path[1:] + ".html"
 
-		// Verificar si existe el archivo
 		if _, err := os.Stat("templates/" + page); os.IsNotExist(err) {
 			http.NotFound(w, r)
 			return
@@ -49,7 +58,6 @@ func main() {
 		renderTemplate(w, page)
 	})
 
-	// 🔥 Puerto dinámico (CLAVE para deploy)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"

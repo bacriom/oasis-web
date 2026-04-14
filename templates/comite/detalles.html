@@ -1,0 +1,35 @@
+{{define "content"}}
+
+<section class="hero">
+    <div class="overlay">
+        <h1>{{.Cargo}}</h1>
+    </div>
+</section>
+
+<section class="comite-detalle">
+
+    <h2 class="nombre">{{.Nombre}}</h2>
+
+    <div class="bloque">
+        <h3>Perfil</h3>
+        <p>{{.Perfil}}</p>
+    </div>
+
+    <div class="bloque">
+        <h3>Funciones</h3>
+        <p>{{.Funciones}}</p>
+    </div>
+
+    <div class="bloque">
+        <h3>Principio</h3>
+        <p>{{.Principio}}</p>
+    </div>
+
+    <div class="bloque">
+        <h3>Contacto</h3>
+        <p>{{.Telefono}} - {{.Lote}}</p>
+    </div>
+
+</section>
+
+{{end}}

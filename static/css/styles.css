@@ -747,6 +747,55 @@ body {
 }
 
 
+/* ===================== COMITE DETALLE ===================== */
+
+.comite-detalle {
+    width: 100%;
+    max-width: clamp(600px, 70vw, 900px);
+    margin: clamp(40px, 6vw, 80px) auto;
+    padding: clamp(20px, 4vw, 40px);
+}
+
+
+/* nombre */
+
+.nombre {
+    text-align: center;
+    font-size: clamp(24px, 2.5vw, 32px);
+    color: #1e66d0;
+    margin-bottom: clamp(30px, 4vw, 50px);
+}
+
+
+/* bloques */
+
+.bloque {
+    padding: clamp(18px, 2.5vw, 24px);
+    margin-bottom: clamp(15px, 2vw, 25px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* títulos */
+
+.bloque h3 {
+    font-size: clamp(18px, 2vw, 22px);
+    color: #1e66d0;
+    margin-bottom: 10px;
+}
+
+
+/* texto */
+
+.bloque p {
+    font-size: clamp(14px, 1.2vw, 17px);
+    color: #333;
+    line-height: 1.6;
+}
+
+
 /* 🔥 importante: evita estilo plano */
 
 details>*:not(summary) {
