@@ -40,6 +40,8 @@ func main() {
 	// 🔥 ESTE ES EL QUE FALTA (CRÍTICO)
 	http.HandleFunc("/comite/", handlers.ComiteDetalleHandler)
 
+	http.HandleFunc("/transparencia/", handlers.TransparenciaHandler)
+
 	// handler general (SE QUEDA)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
