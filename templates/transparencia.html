@@ -1,4 +1,5 @@
 {{define "content"}}
+
 <section class="hero">
     <div class="overlay">
         <h1>TRANSPARENCIA E INFORMES</h1>
@@ -10,159 +11,105 @@
     <div class="container">
 
         <h2 class="section-title">Transparencia</h2>
+
         <p class="section-subtitle">
             Consulta documentos relevantes del fraccionamiento organizados por categoría.
         </p>
 
-        <div class="doc-carousel-wrapper">
-
-            <!-- ===================== REPORTES ===================== -->
-            <div class="doc-category">
-                <h3>Minutas</h3>
-                <div class="doc-carousel">
-
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>REPORTES</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>REPORTES</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>REPORTES</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>REPORTES</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+        <!-- ===================== NAV ===================== -->
+        <div class="doc-nav">
+            {{range $categoria, $_ := .DocumentosPorCategoria}}
+            <a href="#{{$categoria | lower}}">{{$categoria}}</a> {{end}}
         </div>
 
-        <!-- ===================== MINUTAS ===================== -->
-        <div class="doc-carousel-wrapper">
+        <!-- ===================== CATEGORIAS ===================== -->
+        {{range .Categorias}}
 
-            <div class="doc-category">
-                <h3>Minutas</h3>
-                <div class="doc-carousel">
+        <div id="{{.Nombre | lower}}" class="doc-category">
 
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
+            <h3>{{.Nombre}}</h3>
 
-                        <div class="doc-preview">
-                            <span>MINUTAS</span>
-                        </div>
+            <div class="doc-grid collapsed">
 
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
+                {{range .Docs}}
+                <a class="doc-card" href="{{.URL}}" target="_blank">
 
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>MINUTAS</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>MINUTAS</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
-                    </div>
-                    <div class="doc-card" onclick="openDoc('https://docs.google.com/document/d/e/2PACX-1vRU4qaI05hr5tSFE5SK5y9LxG6m862W2zjEmjevjlLE1BGvIpUVM2o5Sv_G73oZwkxIz98S8nE-O3nx/pub?embedded=true')">
-
-                        <div class="doc-preview">
-                            <span>MINUTAS</span>
-                        </div>
-
-                        <div class="doc-info">
-                            <p>Asamblea Febrero 2026</p>
-                            <span class="doc-link">Ver documento</span>
-                        </div>
-
+                    <div class="doc-preview">
+                        <iframe src="https://drive.google.com/file/d/{{.ID}}/preview"></iframe>
                     </div>
 
-                </div>
+                    <div class="doc-info">
+                        <p>{{.Titulo}}</p>
+                        <small>{{.Fecha.Format "02 Jan 2006"}}</small>
+                        <span>Ver documento</span>
+                    </div>
+
+                </a>
+                {{end}}
+
             </div>
+
+            <button class="ver-mas-btn">Ver más</button>
+
         </div>
 
-        <!-- MODAL -->
-        <div id="docModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeDoc()">&times;</span>
-                <iframe id="docFrame"></iframe>
-            </div>
-        </div>
-
-        <script>
-            function openDoc(url) {
-                const modal = document.getElementById("docModal");
-                document.getElementById("docFrame").src = url;
-                modal.classList.add("active");
-            }
-
-            function closeDoc() {
-                const modal = document.getElementById("docModal");
-                modal.classList.remove("active");
-                document.getElementById("docFrame").src = "";
-            }
-        </script>
-
-
-        <!-- ===================== GENERALES ===================== -->
+        {{end}}
 
     </div>
 
 </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
 
+        document.querySelectorAll(".doc-category").forEach(category => {
+
+            const cards = category.querySelectorAll(".doc-card");
+            const btn = category.querySelector(".ver-mas-btn");
+
+            // 🔒 Estado inicial: solo 4 visibles
+            const collapse = () => {
+                cards.forEach((card, index) => {
+                    card.style.display = (index < 4) ? "block" : "none";
+                });
+                btn.textContent = "Ver más";
+                btn.dataset.state = "collapsed";
+            };
+
+            // 🔓 Expandir todo
+            const expand = () => {
+                cards.forEach(card => {
+                    card.style.display = "block";
+                });
+                btn.textContent = "Ver menos";
+                btn.dataset.state = "expanded";
+            };
+
+            // Inicializar
+            if (cards.length <= 4) {
+                btn.style.display = "none";
+            } else {
+                collapse();
+            }
+
+            // 🔁 Toggle
+            btn.addEventListener("click", () => {
+                if (btn.dataset.state === "collapsed") {
+                    expand();
+                } else {
+                    collapse();
+
+                    // 👇 opcional: regresar scroll al inicio de la categoría
+                    category.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            });
+
+        });
+
+    });
+</script>
 
 {{end}}
