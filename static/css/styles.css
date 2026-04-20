@@ -368,54 +368,131 @@ body {
 
 /* ===================== FORMULARIO ===================== */
 
+
+/* ===================== SOLICITUDES ===================== */
+
+
+/* CONTENEDOR GENERAL */
+
 .solicitudes-form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 4vh, 40px);
+    margin-top: clamp(20px, 4vh, 40px);
 }
+
+
+/* GRID DE OPCIONES */
+
+.forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+    justify-content: center;
+    /* 🔥 centra correctamente */
+    gap: clamp(16px, 2vw, 24px);
+    width: 100%;
+    max-width: 900px;
+}
+
+
+/* TARJETAS */
+
+.form-card {
+    background: white;
+    padding: clamp(16px, 2vw, 22px);
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: clamp(14px, 1.2vw, 16px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+}
+
+
+/* HOVER */
+
+.form-card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* ACTIVO */
+
+.form-card.active {
+    background: #1e66d0;
+    color: white;
+    box-shadow: 0 10px 25px rgba(30, 102, 208, 0.3);
+}
+
+
+/* CONTENEDOR DEL FORM */
 
 .form-wrapper {
     width: 100%;
-    max-width: 900px;
-    border-radius: 12px;
+    max-width: clamp(600px, 70vw, 900px);
+    border-radius: clamp(10px, 1.5vw, 16px);
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: white;
 }
+
+
+/* IFRAME */
 
 .form-wrapper iframe {
     width: 100%;
-    height: clamp(600px, 80vh, 900px);
+    height: clamp(500px, 70vh, 800px);
     border: none;
-    background: white;
-    padding: 8px;
+    display: block;
 }
 
 
-/* ===================== NOTAS ===================== */
+/* VISIBILIDAD */
 
-.solicitudes-notas {
+.form-frame {
+    display: none;
+}
+
+.form-frame.active {
+    display: block;
+}
+
+
+/* contenedor por formulario */
+
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+}
+
+
+/* botón */
+
+.form-action {
     display: flex;
     justify-content: center;
+    padding: clamp(12px, 2vw, 20px);
+    background: #fafafa;
 }
 
-.notas-box {
-    max-width: 800px;
-    background: #f8f8f8;
-    padding: clamp(16px, 2vw, 24px);
-    border-radius: 12px;
+.open-form-btn {
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: #1e66d0;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
 }
 
-.notas-box h3 {
-    font-size: clamp(18px, 2vw, 22px);
-    margin-bottom: 10px;
-}
-
-.notas-box ul {
-    padding-left: 18px;
-}
-
-.notas-box li {
-    font-size: clamp(14px, 1.2vw, 16px);
-    margin-bottom: 6px;
+.open-form-btn:hover {
+    background: #1553a6;
+    transform: translateY(-2px);
 }
 
 

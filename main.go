@@ -32,17 +32,12 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// 🔥 REDIRECT /comite → /comite/
-	http.HandleFunc("/comite", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/comite/", http.StatusMovedPermanently)
-	})
-
-	// 🔥 ESTE ES EL QUE FALTA (CRÍTICO)
+	// 🔥 rutas específicas PRIMERO
 	http.HandleFunc("/comite/", handlers.ComiteDetalleHandler)
-
 	http.HandleFunc("/transparencia/", handlers.TransparenciaHandler)
+	http.HandleFunc("/solicitudes/", handlers.SolicitudesHandler)
 
-	// handler general (SE QUEDA)
+	// 🔥 handler general al final
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 		if r.URL.Path == "/" {
