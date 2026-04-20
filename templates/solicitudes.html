@@ -20,23 +20,61 @@
 
 <!-- ===================== FORMULARIO ===================== -->
 <section class="container solicitudes-form">
+
+    <!-- SELECTOR -->
+    <div class="forms-grid">
+        {{range .}}
+        <div class="form-card {{if eq .ID " form1 "}}active{{end}}" onclick="selectForm('{{.ID}}', this)">
+            <p>{{.Name}}</p>
+        </div>
+        {{end}}
+    </div>
+
+    <!-- FORMULARIOS -->
     <div class="form-wrapper">
 
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2l6-wo8JZ0LrjutTkLEgHDfJCDoJkHe1_8VMFIyaWTXPw6g/viewform?embedded=true" width="640" height="1001" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        {{range .}}
+        <div class="form-container {{if eq .ID " form1 "}}active{{end}}" id="container-{{.ID}}">
+
+            <iframe id="{{.ID}}" class="form-frame {{if eq .ID " form1 "}}active{{end}}" src="{{.URL}}">
+            </iframe>
+
+            <!-- BOTÓN -->
+            <div class="form-action">
+                <a href="{{.URL}}" target="_blank" class="open-form-btn">
+                    Abrir formulario completo
+                </a>
+            </div>
+
+        </div>
+        {{end}}
 
     </div>
-</section>
 
-<!-- ===================== NOTAS ===================== -->
-<section class="container solicitudes-notas">
-    <div class="notas-box">
-        <h3>Importante</h3>
-        <ul>
-            <li>El acceso o respuesta no es inmediata; las solicitudes se revisan al cierre del día.</li>
-            <li>Utiliza el mismo correo registrado en la aplicación del fraccionamiento.</li>
-            <li>Evita duplicar solicitudes para el mismo tema.</li>
-        </ul>
-    </div>
 </section>
+<script>
+    function selectForm(id, el) {
+
+        // ocultar contenedores
+        document.querySelectorAll('.form-container').forEach(c => {
+            c.classList.remove('active');
+        });
+
+        document.getElementById('container-' + id).classList.add('active');
+
+        // botones
+        document.querySelectorAll('.form-card').forEach(c => {
+            c.classList.remove('active');
+        });
+
+        el.classList.add('active');
+
+        // scroll
+        document.querySelector('.form-wrapper').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+</script>
 
 {{end}}
