@@ -27,34 +27,6 @@ func TransparenciaHandler(w http.ResponseWriter, r *http.Request) {
 			Categoria: "Minutas",
 			Fecha:     time.Date(2025, 1, 10, 0, 0, 0, 0, time.UTC),
 		},
-		{
-			ID:        "1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ",
-			Titulo:    "Asamblea Marzo 2026",
-			URL:       "https://docs.google.com/document/d/1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ/edit",
-			Categoria: "Minutas",
-			Fecha:     time.Date(2026, 3, 29, 0, 0, 0, 0, time.UTC),
-		},
-		{
-			ID:        "1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ",
-			Titulo:    "Asamblea Marzo 2026",
-			URL:       "https://docs.google.com/document/d/1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ/edit",
-			Categoria: "Minutas",
-			Fecha:     time.Date(2026, 3, 29, 0, 0, 0, 0, time.UTC),
-		},
-		{
-			ID:        "1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ",
-			Titulo:    "Asamblea Marzo 2026",
-			URL:       "https://docs.google.com/document/d/1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ/edit",
-			Categoria: "Minutas",
-			Fecha:     time.Date(2026, 3, 29, 0, 0, 0, 0, time.UTC),
-		},
-		{
-			ID:        "1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ",
-			Titulo:    "Asamblea Marzo 2026",
-			URL:       "https://docs.google.com/document/d/1j2WGNqaSd5UVaBplesHfyD1iWKi9smgQ/edit",
-			Categoria: "Minutas",
-			Fecha:     time.Date(2026, 3, 29, 0, 0, 0, 0, time.UTC),
-		},
 	}
 
 	// 2. AGRUPAR POR CATEGORÍA
